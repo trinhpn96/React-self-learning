@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Intro</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    let root = document.getElementById("root");
+    let count = 0;
+
+    function render() {
+      ReactDOM.render(<App />, root);
+    }
+
+    
+    function App() {
+      function countUp() {
+        count++;
+        render(); // -> render every time clicked
+      }
+
+      // JS coding here
+      return (
+        //  Merge all element in a big <div></div> or <> </>
+        <>
+          <h1>Total Click: {count}</h1>
+          <button onClick={countUp}>Click</button>
+        </>
+      );
+    }
+
+    render();
+  </script>
+</html>

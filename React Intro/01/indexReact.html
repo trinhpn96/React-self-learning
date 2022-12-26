@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <script>
+      let root = document.getElementById("root");
+      let title = React.createElement(
+        "h1",
+        {
+          id: "title",
+          style: { color: "red" },
+          onMouseEnter: () => console.log("Mouse Enter!"),
+        },
+        "Total click: 0"
+      );
+
+      let button = React.createElement(
+        "button",
+        {
+          style: { backgroundColor: "tomato" },
+          onClick: () => {
+            console.log("Click!");
+          },
+        },
+        "Click"
+      );
+
+      let container = React.createElement("div", { id: "container" }, [
+        title,
+        button,
+      ]);
+      ReactDOM.render(container, root);
+    </script>
+  </body>
+</html>
